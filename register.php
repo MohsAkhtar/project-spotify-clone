@@ -1,9 +1,11 @@
 <?php
+    // When you 'include' you are basically copying the code and pasting here
+    // so order matters
+    
     include("includes/classes/Account.php");
 
     $account = new Account();
-    // call register function from Account() class
-    $account->register();
+
     include("includes/handlers/register-handler.php");
     include("includes/handlers/login-handler.php");
 ?>

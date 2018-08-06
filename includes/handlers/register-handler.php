@@ -33,6 +33,9 @@
         $emailConfirm = sanitizeFormUsername($_POST['emailConfirm']);
         $password = sanitizeFormPassword($_POST['password']);
         $password2 = sanitizeFormPassword($_POST['password2']);
+
+        // call register function from Account() class
+        $account->register($username, $firstName, $lastName, $email, $emailConfirm, $password, $password2);
     }
 ?>
 
