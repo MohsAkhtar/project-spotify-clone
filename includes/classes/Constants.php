@@ -9,5 +9,7 @@ class Constants{
     public static $usernameNotValidLength = "Your username has to be between 5 and 25 characters";
     public static $firstNameNotValidLength = "Your first name has to be between 2 and 25 characters";
     public static $lastNameNotValidLength = "Your last name has to be between 2 and 25 characters";
+    public static $usernameAlreadyExists = "This username has already been taken";
+    public static $emailAlreadyExists = "This email has already been taken";
 }
 ?>

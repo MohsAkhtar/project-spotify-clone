@@ -74,7 +74,14 @@
                 return;
             }
 
-            // TODO: check username exists
+            // check username exists
+            $checkUsernameQuery = mysqli_query($this->con, "SELECT username FROM users WHERE
+            username = '$usernameText'");
+            // check if that query brings up a row in the db
+            if(mysqli_num_rows($checkUsernameQuery) != 0){
+                array_push($this->errorArray, Constants::$usernameAlreadyExists);
+                return;
+            }
         }
     
         private function validateFirstName($firstNameText){
@@ -108,8 +115,13 @@
 
             // Don't need to repeat this code for emailConfirm as the first check won't
             // be valid if the two emails are not the same anyway
-
-            // TODO: Check username has not been used
+            $checkEmailQuery = mysqli_query($this->con, "SELECT email FROM users WHERE
+            email = '$emailText'");
+            // check if that query brings up a row in the db
+            if(mysqli_num_rows($checkEmailQuery) != 0){
+                array_push($this->errorArray, Constants::$emailAlreadyExists);
+                return;
+            }
         }
     
         private function validatePassword($passwordText, $passwordConfirmText){

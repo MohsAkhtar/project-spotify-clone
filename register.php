@@ -46,7 +46,10 @@
         <form id="registerForm" action="register.php" method="POST">
             <h2>Sign up for an account</h2>
             <p>
-                <?php echo $account->getError(Constants::$usernameNotValidLength); ?>
+                <?php 
+                    echo $account->getError(Constants::$usernameNotValidLength);
+                    echo $account->getError(Constants::$usernameAlreadyExists);
+                 ?>
                 <label for="registerUsername">Username</label>
                 <input type="text" id="registerUsername" name="registerUsername" 
                 placeholder="e.g. Mohs Akhtar" value = "<?php getInputValue('registerUsername') ?>" required>
@@ -66,7 +69,8 @@
             <p>
                 <?php 
                     echo $account->getError(Constants::$emailsNotMatch); 
-                    echo $account->getError(Constants::$emailNotValid); 
+                    echo $account->getError(Constants::$emailNotValid);
+                    echo $account->getError(Constants::$emailAlreadyExists); 
                 ?>
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" 
