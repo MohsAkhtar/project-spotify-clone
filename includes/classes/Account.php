@@ -1,11 +1,13 @@
 <?php
     // Typically class names start with a capital as their file name
     class Account{
+        private $con;
         private $errorArray;
 
         // constructor is something thats called as soon as class initialises
         // or variable of this class is created
-        public function __construct(){
+        public function __construct($con){
+            $this->con = $con;
             $this->errorArray = array();
         }
 
@@ -22,7 +24,7 @@
             // checks if any values are in errorArray
             if(empty($this->errorArray)){
                 // if true insert values into db
-                return true;
+                return insertUserDetails($un, $fn, $ln, $em, $pw);
             } else {
                 // means a validation condition failed
                 return false;
@@ -38,6 +40,24 @@
             }
             // returning a span
             return "<span class='errorMessage'>$error</span>";
+        }
+
+        // function that inserts user into db
+        private function insertUserDetails($un, $fn, $ln, $em, $pw){
+            // encrypt the password with md5 method
+            // simple way to start with enryption
+            $encryptedPw = md5($pw);
+            // links to profile pic folder
+            $profilePic = "assets/images/profile-pics/head-emarald.png";
+            $date = date("Y-m-d");
+
+            // have to make sure 'this' is used so it knows we're talking
+            // about this instance of the class
+            // have to have single quotes around variables
+            $result = mysqli_query($this->con, "INSERT INTO users VALUES 
+            ('', '$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')");
+
+            return $result;
         }
 
         // private means these can only be called from within this class
