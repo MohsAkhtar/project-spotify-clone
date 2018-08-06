@@ -69,7 +69,24 @@
         }
     
         private function validatePassword($passwordText, $passwordConfirmText){
-            
+            if($passwordText != $passwordConfirmText){
+                array_push($this->errorArray, "Your passwords do not match");
+                return;
+            }
+
+            // Check if alphanumeric and numbers are used for pwd
+            // So we are going through A-Z a-z 0-9 pattern
+            // '^' means not
+            // So checking if character is not in the pattern
+            if(preg_match('/[^A-Za-z0-9]/', $passwordText)){
+                array_push($this->errorArray, "Your password can only contain letters and numbers");
+                return;
+            }
+
+            if(strlen($passwordText)> 30 || strlen($passwordText) < 2){
+                array_push($this->errorArray, "Your password has to be between 5 and 30 characters");
+                return;
+            }
         }
 
 
