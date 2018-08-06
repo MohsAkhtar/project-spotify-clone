@@ -34,15 +34,38 @@
         }
     
         private function validateFirstName($firstNameText){
-    
+            if(strlen($firstNameText)> 25 || strlen($firstNameText) < 2){
+                array_push($this->errorArray, "Your first name has to be between 2 and 25 characters");
+                return;
+            }
         }
     
         private function validateLastName($lastNameText){
-            
+            if(strlen($lastNameText)> 25 || strlen($lastNameText) < 2){
+                array_push($this->errorArray, "Your last name has to be between 2 and 25 characters");
+                return;
+            }
         }
     
         private function validateEmail($emailText, $emailConfirmText){
-            
+            if($emailText != $emailConfirmText){
+                array_push($this->errorArray, "Your emails do not match");
+                return;
+            }
+
+            // if not '!'
+            // checks if email is in correct format
+            // Need this check as HTML allows you to enter anything afer
+            // '@' and thinks its valid
+            if(!filter_var($emailText, FILTER_VALIDATE_EMAIL)){
+                array_push($this->errorArray, "Your email is not valid");
+                return;
+            }
+
+            // Don't need to repeat this code for emailConfirm as the first check won't
+            // be valid if the two emails are not the same anyway
+
+            // TODO: Check username has not been used
         }
     
         private function validatePassword($passwordText, $passwordConfirmText){
