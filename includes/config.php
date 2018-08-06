@@ -2,6 +2,8 @@
     // turns on output buffering
     // waits till all data is complete till sending to server
     ob_start();
+    // enable use of sessions
+    session_start();
 
     // sets timezone to london GMT
     // used for when we store times in db

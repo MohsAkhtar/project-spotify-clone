@@ -39,6 +39,8 @@
         
         // if registration was successful
         if($wasSuccessful){
+            // creating session variable with user logged in as users username
+            $_SESSION['userLoggedIn'] = $username;
             // 'header' redirects to 'Location'
             header("Location: index.php");
         }

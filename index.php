@@ -1,3 +1,16 @@
+<?php
+    include("includes/config.php");
+    // if need to manually log out of session
+    //session_destroy();
+
+    // checks if session is set
+    if(isset($_SESSION['userLoggedIn'])){
+        $userLoggedIn = $_SESSION['userLoggedIn'];
+    } else {
+        // redirects to register page if session is not started
+        header("Location: register.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
