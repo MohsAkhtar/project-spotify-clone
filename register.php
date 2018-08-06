@@ -1,3 +1,15 @@
+<?php
+    // if login button is pressed do something
+    if(isset($_POST['loginButton'])){
+        echo "login button was pressed";
+    }
+
+    if(isset($_POST['registerButton'])){
+        echo "register button was pressed";
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
