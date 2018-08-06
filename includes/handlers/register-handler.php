@@ -35,7 +35,13 @@
         $password2 = sanitizeFormPassword($_POST['password2']);
 
         // call register function from Account() class
-        $account->register($username, $firstName, $lastName, $email, $emailConfirm, $password, $password2);
+        $wasSuccessful = $account->register($username, $firstName, $lastName, $email, $emailConfirm, $password, $password2);
+        
+        // if registration was successful
+        if($wasSuccessful){
+            // 'header' redirects to 'Location'
+            header("Location: index.php");
+        }
     }
 ?>
 

@@ -18,6 +18,14 @@
             $this->validateLastName($ln);
             $this->validateEmail($em, $em2);
             $this->validatePassword($pw, $pw2);
+
+            // checks if any values are in errorArray
+            if(empty($this->errorArray)){
+                // if true insert values into db
+            } else {
+                // means a validation condition failed
+                return false;
+            }
         }
 
         // private means these can only be called from within this class
