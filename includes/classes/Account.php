@@ -19,8 +19,6 @@
             $this->validateEmail($em, $em2);
             $this->validatePassword($pw, $pw2);
 
-            echo "this";
-
             // checks if any values are in errorArray
             if(empty($this->errorArray)){
                 // if true insert values into db

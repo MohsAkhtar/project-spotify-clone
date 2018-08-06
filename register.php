@@ -1,7 +1,7 @@
 <?php
     // When you 'include' you are basically copying the code and pasting here
     // so order matters
-
+    include("includes/config.php");
     include("includes/classes/Account.php");
     include("includes/classes/Constants.php");
 
