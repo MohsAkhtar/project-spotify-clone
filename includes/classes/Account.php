@@ -24,7 +24,7 @@
             // checks if any values are in errorArray
             if(empty($this->errorArray)){
                 // if true insert values into db
-                return insertUserDetails($un, $fn, $ln, $em, $pw);
+                return $this->insertUserDetails($un, $fn, $ln, $em, $pw);
             } else {
                 // means a validation condition failed
                 return false;
