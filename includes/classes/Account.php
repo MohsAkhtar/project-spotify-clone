@@ -47,7 +47,11 @@
             // Checks length of username is valid
             if(strlen($usernameText)> 25 || strlen($usernameText) < 5){
                 // if not valid put this message in error array
-                array_push($this->errorArray, "Your username has to be between 5 and 25 characters");
+                // access Constants with 'Constants::'
+                // '::' is like the '->'
+                // you use double colon for when you don't have instance of class
+                // you use arrow when you do
+                array_push($this->errorArray, Constants::$usernameNotValidLength);
                 // to stop execution of function'return'. ends function
                 return;
             }
@@ -57,21 +61,21 @@
     
         private function validateFirstName($firstNameText){
             if(strlen($firstNameText)> 25 || strlen($firstNameText) < 2){
-                array_push($this->errorArray, "Your first name has to be between 2 and 25 characters");
+                array_push($this->errorArray, Constants::$firstNameNotValidLength);
                 return;
             }
         }
     
         private function validateLastName($lastNameText){
             if(strlen($lastNameText)> 25 || strlen($lastNameText) < 2){
-                array_push($this->errorArray, "Your last name has to be between 2 and 25 characters");
+                array_push($this->errorArray,  Constants::$lastNameNotValidLength);
                 return;
             }
         }
     
         private function validateEmail($emailText, $emailConfirmText){
             if($emailText != $emailConfirmText){
-                array_push($this->errorArray, "Your emails do not match");
+                array_push($this->errorArray, Constants::$emailNotMatch);
                 return;
             }
 
@@ -80,7 +84,7 @@
             // Need this check as HTML allows you to enter anything afer
             // '@' and thinks its valid */
             if(!filter_var($emailText, FILTER_VALIDATE_EMAIL)){
-                array_push($this->errorArray, "Your email is not valid");
+                array_push($this->errorArray, Constants::$emailNotValid);
                 return;
             }
 
@@ -92,7 +96,7 @@
     
         private function validatePassword($passwordText, $passwordConfirmText){
             if($passwordText != $passwordConfirmText){
-                array_push($this->errorArray, "Your passwords do not match");
+                array_push($this->errorArray, Constants::$passwordsNotMatch);
                 return;
             }
 
@@ -101,12 +105,12 @@
             // '^' means not
             // So checking if character is not in the pattern
             if(preg_match('/[^A-Za-z0-9]/', $passwordText)){
-                array_push($this->errorArray, "Your password can only contain letters and numbers");
+                array_push($this->errorArray, Sonstants::$passwordNotAlphanumeric);
                 return;
             }
 
             if(strlen($passwordText)> 30 || strlen($passwordText) < 2){
-                array_push($this->errorArray, "Your password has to be between 5 and 30 characters");
+                array_push($this->errorArray, Constants::$passwordNotValidLength);
                 return;
             }
         }
