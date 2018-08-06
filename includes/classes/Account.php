@@ -31,6 +31,21 @@
             }
         }
 
+        public function login($un, $pw){
+            // first encrypt input password
+            $pw = md5($pw);
+            // then check if it exists in table
+            $query = mysqli_query($this->con, "SELECT * FROM users WHERE username = '$un' AND password = '$pw'");
+
+            // check if a row matches input 
+            if(mysqli_num_rows($query) == 1){
+                return true;
+            } else {
+                array_push($this->errorArray, Constants::$loginFailed);
+                return false;
+            }
+        }
+
         // checks to see if we have had any errors
         public function getError($error){
             // checks if given parameter exists in the array
