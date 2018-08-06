@@ -75,7 +75,7 @@
     
         private function validateEmail($emailText, $emailConfirmText){
             if($emailText != $emailConfirmText){
-                array_push($this->errorArray, Constants::$emailNotMatch);
+                array_push($this->errorArray, Constants::$emailsNotMatch);
                 return;
             }
 
