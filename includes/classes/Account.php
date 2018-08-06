@@ -19,13 +19,27 @@
             $this->validateEmail($em, $em2);
             $this->validatePassword($pw, $pw2);
 
+            echo "this";
+
             // checks if any values are in errorArray
             if(empty($this->errorArray)){
                 // if true insert values into db
+                return true;
             } else {
                 // means a validation condition failed
                 return false;
             }
+        }
+
+        // checks to see if we have had any errors
+        public function getError($error){
+            // checks if given parameter exists in the array
+            if(!in_array($error, $this->errorArray)){
+                // if it does not exist in array
+                $error = "";
+            }
+            // returning a span
+            return "<span class='errorMessage'>$error</span>";
         }
 
         // private means these can only be called from within this class
@@ -61,10 +75,10 @@
                 return;
             }
 
-            // if not '!'
+            /* if not '!'
             // checks if email is in correct format
             // Need this check as HTML allows you to enter anything afer
-            // '@' and thinks its valid
+            // '@' and thinks its valid */
             if(!filter_var($emailText, FILTER_VALIDATE_EMAIL)){
                 array_push($this->errorArray, "Your email is not valid");
                 return;
