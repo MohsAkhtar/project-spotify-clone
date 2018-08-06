@@ -22,25 +22,7 @@
         return $inputText;
     }
 
-    function validateUsername($usernameText){
-
-    }
-
-    function validateFirstName($firstNameText){
-
-    }
-
-    function validateLastName($lastNameText){
-        
-    }
-
-    function validateEmail($emailText, $emailConfirmText){
-        
-    }
-
-    function validatePassword($passwordText, $passwordConfirmText){
-        
-    }
+    
 
     if(isset($_POST['registerButton'])){
         // if you see $ means it is variable
@@ -51,12 +33,6 @@
         $emailConfirm = sanitizeFormUsername($_POST['emailConfirm']);
         $password = sanitizeFormPassword($_POST['password']);
         $password2 = sanitizeFormPassword($_POST['password2']);
-
-        validateUsername($username);
-        validateFirstName($firstName);
-        validateLastName($lastName);
-        validateEmail($email, $emailConfirm);
-        validatePassword($password, $password2);
     }
 ?>
 
