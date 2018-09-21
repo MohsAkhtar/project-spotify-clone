@@ -33,6 +33,30 @@
     <script src="assets/js/register.js"></script>
 </head>
 <body>
+    <?php
+    // added this php so when register or login button is pressed the correct
+    // form displays. Wee've done this in php as js can't tell if a php button
+    // has been pressed
+        if(isset($_POST['registerButton'])){
+            // printing out this script if register button is pressed
+            echo '<script>
+            $(document).ready(function() {
+                $("#registerForm").show();
+                $("#loginForm").hide();
+            }
+            </script>';
+        } else {
+            // printing out this script if login button is pressed
+            echo '<script>
+            $(document).ready(function() {
+                $("#loginForm").show();
+                $("#registerForm").hide();
+            }
+            </script>';
+        }
+    ?>
+
+
     <div id="background">
         <div id="loginContainer">
             <div id="inputContainer">
@@ -41,7 +65,7 @@
                     <p>
                         <?php echo $account->getError(Constants::$loginFailed); ?>
                         <label for="loginUsername">Username</label>
-                    <input type="text" id="loginUsername" name="loginUsername" placeholder="e.g. Mohs Akhtar" required>
+                    <input type="text" id="loginUsername" name="loginUsername" placeholder="e.g. Mohs Akhtar" value="<?php getInputValue('loginUsername') ?>" required>
                     </p>
                     <p>
                         <label for="loginPassword">Password</label>
@@ -113,7 +137,16 @@
                     </div>
                 </form>
             </div>
-        </div>
-    </div>
+            <div id="loginText">
+                <h1>Get great music, right now</h1>
+                <h2>Listen to loads of songs for free</h2>
+                <ul>
+                    <li>Discover music you'll fall in love with</li>
+                    <li>Create your own playlists</li>
+                    <li>Follow artists to keep up to date</li>
+                </ul>
+            </div>
+        </div>     
+    </div>  
 </body>
 </html>

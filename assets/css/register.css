@@ -32,6 +32,8 @@ body {
   max-width: 1024px;
 }
 
+/* ///////////////////////////////////////////////// */
+/* Added these to change colour of placeholder text */
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
   color: #fff;
@@ -59,9 +61,11 @@ body {
   /* Most modern browsers support this now. */
   color: #fff;
 }
+/* /////////////////////////////////////////////////////*/
 
 #inputContainer {
   width: 400px;
+  margin-top: 45px;
   padding: 45px;
   float: left;
   border-right: 1px solid #999;
@@ -84,6 +88,7 @@ body {
 }
 
 #inputContainer label {
+  display: block;
   color: #a0a0a0;
   font-size: 13px;
   margin-top: 15px;
@@ -117,4 +122,47 @@ body {
 
 .hasAccountText span:hover {
   cursor: pointer;
+}
+
+/* This stops momentary glimpse of this form when page loads, 
+or when a register/login button is pressed.
+Also we basically letting the JavaScript choose which form gets
+displayed */
+#registerForm,
+#loginForm {
+  display: none;
+}
+
+/* Login Text*/
+#loginText {
+  padding: 45px;
+  display: table-cell;
+}
+
+#loginText h1 {
+  color: #07d159;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+#loginText h2 {
+  margin: 35px 0;
+}
+
+#loginText ul {
+  padding: 0;
+}
+
+#loginText li {
+  font-size: 20px;
+  list-style: none;
+  padding: 15px 50px;
+  background: url(../images/icons/checkmark.png) no-repeat 0 0;
+}
+
+#inputContainer .errorMessage {
+  display: block;
+  color: #07d159;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
