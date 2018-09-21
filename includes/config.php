@@ -11,7 +11,7 @@
 
     // connect variable for MySQL db
     // "server name", "username", "password", "database name"
-    $con = mysqli_connect("localhost", "root", "", "spotify_clone");
+    $con = mysqli_connect("localhost", "root", "", "project-spotify-clone");
 
     // output err if failed to connect to db
     if(mysqli_connect_errno()){

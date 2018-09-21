@@ -27,6 +27,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome to SpotifyClone!</title>
     <link rel="stylesheet" href="assets/css/register.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <div id="background">
@@ -44,6 +45,10 @@
                     <input type="password" id="loginPassword" name="loginPassword" placeholder="Your password" required>
                     </p>
                     <button type="submit" name="loginButton">LOG IN</button>
+
+                    <div class="hasAccountText">
+                        <div id="hideLogin"><span>Don't have an account yet? Signup here.</span></div>
+                    </div>
                 </form>
 
 
@@ -99,6 +104,10 @@
                         <input type="password" id="password2" name="password2" placeholder="Confirm your password" required>
                     </p>
                     <button type="submit" name="registerButton">SIGN UP</button>
+
+                    <div class="hasAccountText">
+                        <div id="hideRegister"><span>Already have an account? Log in here.</span></div>
+                    </div>
                 </form>
             </div>
         </div>
