@@ -146,3 +146,48 @@ body {
 #nowPlayingRight .volumeBar .progressBar {
   width: 125px;
 }
+/*////////////////////////////////////////
+/////// Top Container */
+
+#topContainer {
+  min-height: 100%;
+  width: 100%;
+}
+
+#navBarContainer {
+  background: #000;
+  width: 220px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#navBarContainer .navBar .logo {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  -ms-flex-direction: column;
+}
+
+#navBarContainer .navBar .logo img {
+  width: 32px;
+}
+
+#navBarContainer .navBar .group {
+  border-top: 1px solid #a0a0a0;
+  padding: 15px 0;
+}
+
+#navBarContainer .navBar .navItem {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  display: block;
+  letter-spacing: 1px;
+}
+
+#navBarContainer .navBar .navItem .navItemLink {
+  color: #a0a0a0;
+  text-decoration: none;
+}
