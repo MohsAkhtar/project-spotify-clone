@@ -185,9 +185,22 @@ body {
   font-weight: 700;
   display: block;
   letter-spacing: 1px;
+  position: relative;
 }
 
 #navBarContainer .navBar .navItem .navItemLink {
   color: #a0a0a0;
   text-decoration: none;
+}
+
+#navBarContainer .navBar .navItem .navItemLink:hover {
+  color: #fff;
+}
+
+#navBarContainer .navBar .navItem .navItemLink .icon {
+  position: absolute;
+  right: 0;
+  width: 25px;
+  top: 6px;
+  padding-right: 10px;
 }
