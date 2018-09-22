@@ -1,3 +1,9 @@
+* {
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
 html,
 body {
   padding: 0;
@@ -5,10 +11,14 @@ body {
   height: 100%;
 }
 
-* {
-  font-family: 'Lato', sans-serif;
-  color: #fff;
+body {
+  background-color: #181818;
+  font-size: 14px;
+  min-width: 720px;
 }
+
+/*////////////////////////////////////////
+/////// Container Heights and Widths */
 
 #nowPlayingBarContainer {
   width: 100%;
@@ -22,7 +32,7 @@ body {
   display: flex;
   height: 90px;
   padding: 16px;
-  box-sizing: border-box;
+  box-sizing: border-box; /* stops padding being added to total height */
 }
 
 #nowPlayingLeft,
@@ -39,72 +49,78 @@ body {
   align-items: center;
 }
 
+/*////////////////////////////////////////
+/////// Now Playing Bar */
+
 #nowPlayingBar .content {
   width: 100%;
   height: 57px;
 }
 
-.playerControls .buttons {
+#nowPlayingBar .playerControls .buttons {
   margin: 0 auto;
   display: table;
 }
 
-.controlButton {
+#nowPlayingBar .controlButton {
   background-color: transparent;
   border: none;
   vertical-align: middle;
 }
 
-.controlButton img {
+#nowPlayingBar .controlButton img {
   width: 20px;
   height: 20px;
 }
 
-.controlButton.play img,
-.controlButton.pause img {
+#nowPlayingBar .controlButton.play img,
+#nowPlayingBar .controlButton.pause img {
   width: 32px;
   height: 32px;
 }
 
-.controlButton:hover {
+#nowPlayingBar .controlButton:hover {
   cursor: pointer;
 }
 
-.progressTime {
+#nowPlayingBar .progressTime {
   color: #a0a0a0;
   font-size: 11px;
   min-width: 40px;
   text-align: center;
 }
 
-.playbackBar {
+#nowPlayingBar .playbackBar {
   display: flex;
 }
 
-.progressBar {
+#nowPlayingBar .progressBar {
   width: 100%;
   height: 12px;
   display: inline-flex;
   cursor: pointer;
 }
 
-.progressBarBg {
+#nowPlayingBar .progressBarBg {
   background-color: #404040;
   height: 4px;
   width: 100%;
   border-radius: 2px;
 }
 
-.progress {
+#nowPlayingBar .progress {
   background-color: #a0a0a0;
   height: 4px;
   width: 0;
   border-radius: 2px;
 }
 
-.playbackBar .progressBar {
+#nowPlayingBar .playbackBar .progressBar {
   margin-top: 3px;
 }
+
+/*////////////////////////////////////////
+/////// Now Playing Bar Left Side */
 
 #nowPlayingLeft .albumArtwork {
   height: 100%;
@@ -132,6 +148,9 @@ body {
   font-size: 12px;
 }
 
+/*////////////////////////////////////////
+/////// Now Playing Right Bar Side*/
+
 #nowPlayingRight {
   position: relative;
   margin-top: 16px;
@@ -153,6 +172,9 @@ body {
   min-height: 100%;
   width: 100%;
 }
+
+/*////////////////////////////////////////
+/////// Nav Bar Container */
 
 #navBarContainer {
   background: #000;
@@ -203,4 +225,47 @@ body {
   width: 25px;
   top: 6px;
   padding-right: 10px;
+}
+
+/*////////////////////////////////////////
+/////// Main View Container */
+#mainViewContainer {
+  margin-left: 220px; /* Because side nav is 220px wide */
+  padding-bottom: 90px; /* Because now playing bar is 90px height */
+  width: calc(100% - 220px);
+}
+
+#mainViewContainer #mainContent {
+  padding: 0 20px;
+}
+
+#mainViewContainer #mainContent .pageHeadingBig {
+  padding: 20px;
+  text-align: center;
+}
+
+#mainViewContainer #mainContent .gridViewItem {
+  display: inline-block;
+  margin-right: 20px;
+  width: 29%;
+  max-width: 200px;
+  min-width: 150px;
+  margin-bottom: 20px;
+}
+
+#mainViewContainer #mainContent .gridViewItem img {
+  width: 100%; /* images are taking size of gridViewItem */
+}
+
+#mainViewContainer #mainContent .gridViewItem .gridViewInfo {
+  font-weight: 300;
+  text-align: center;
+  padding: 5px 0;
+  text-overflow: ellipsis; /* Stops text overflowing and gives a ... */
+  overflow: hidden; /* actually clips the overflown text */
+  white-space: nowrap; /* stops text wrapping */
+}
+
+#mainViewContainer #mainContent .gridViewItem a {
+  text-decoration: none;
 }
