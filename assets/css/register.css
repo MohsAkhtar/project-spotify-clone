@@ -15,9 +15,21 @@ body {
   width: 100%;
 }
 
+/* This stops momentary glimpse of this form when page loads, 
+or when a register/login button is pressed.
+Also we basically letting the JavaScript choose which form gets
+displayed */
+#registerForm,
+#loginForm {
+  display: none;
+}
+
+/*////////////////////////////////////////////////////////
+///////// LOGIN CONTAINER */
+
 #loginContainer * {
   color: #fff;
-  font-family: 'Helvetica Neue', 'Helvetica', 'sans-serif';
+  font-family: 'Lato', sans-serif;
   font-weight: normal;
   line-height: 1em;
   /* border box means when you specify a width for something it should
@@ -63,6 +75,8 @@ body {
 }
 /* /////////////////////////////////////////////////////*/
 
+/*////////////////////////////////////////////////////////
+///////// INPUT CONTAINER */
 #inputContainer {
   width: 400px;
   margin-top: 45px;
@@ -105,12 +119,16 @@ body {
   margin: 20px auto;
   height: 41px;
   width: 100%;
+  transition: all 0.5s;
 }
 
 #inputContainer button:hover {
   cursor: pointer;
+  background-color: #07d159;
 }
 
+/*////////////////////////////////////////////////////////
+///////// HAS ACCOUNT TEXT */
 .hasAccountText {
   text-align: center;
 }
@@ -124,16 +142,8 @@ body {
   cursor: pointer;
 }
 
-/* This stops momentary glimpse of this form when page loads, 
-or when a register/login button is pressed.
-Also we basically letting the JavaScript choose which form gets
-displayed */
-#registerForm,
-#loginForm {
-  display: none;
-}
-
-/* Login Text*/
+/*////////////////////////////////////////////////////////
+///////// LOGIN TEXT */
 #loginText {
   padding: 45px;
   display: table-cell;
@@ -142,7 +152,7 @@ displayed */
 #loginText h1 {
   color: #07d159;
   font-size: 60px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 #loginText h2 {
@@ -160,6 +170,8 @@ displayed */
   background: url(../images/icons/checkmark.png) no-repeat 0 0;
 }
 
+/*////////////////////////////////////////////////////////
+///////// ERROR MESSAGE */
 #inputContainer .errorMessage {
   display: block;
   color: #07d159;
